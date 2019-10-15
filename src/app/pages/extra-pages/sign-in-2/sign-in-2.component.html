@@ -1,0 +1,25 @@
+<ni-card [title]="'Sign in with your app id to continue'" [align]="'center'">
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Username" value="">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Password" value="">
+    </mat-form-field>
+
+    <div class="text-left mb-module">
+      <mat-checkbox>
+        Keep me signed in
+      </mat-checkbox>
+    </div>
+
+    <button ni-button [view]="'accent'" [block]="true">Sign In</button>
+
+    <div class="additional-info">
+      <a href="extra-layout/sign-up">Sign up</a>
+      <span class="divider"></span>
+      <a href="extra-layout/forgot">Forgot your password?</a>
+    </div>
+  </form>
+</ni-card>

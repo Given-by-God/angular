@@ -1,0 +1,309 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20190930.180614.2944.0.001.json",
+    "dumpEventTime": "2019-09-30T18:06:14Z",
+    "dumpEventTimeStamp": "1569855974474",
+    "processId": 2944,
+    "cwd": "C:\\Users\\Bogdan\\Desktop\\facebook\\шаблон angular\\angular",
+    "commandLine": [
+      "node",
+      "C:\\Users\\Bogdan\\AppData\\Roaming\\npm\\\\node_modules\\@angular\\cli\\bin\\ng",
+      "build",
+      "--prod"
+    ],
+    "nodejsVersion": "v12.10.0",
+    "wordSize": 32,
+    "arch": "ia32",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.10.0",
+      "v8": "7.6.303.29-node.16",
+      "uv": "1.31.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "4",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1c",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v12.10.0/node-v12.10.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.10.0/node-v12.10.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.10.0/win-x86/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.18362",
+    "osVersion": "Windows 10 Home Single Language",
+    "osMachine": "i686",
+    "cpus": [
+      {
+        "model": "AMD A6-9225 RADEON R4, 5 COMPUTE CORES 2C+3G   ",
+        "speed": 2600,
+        "user": 22881812,
+        "nice": 0,
+        "sys": 12712234,
+        "idle": 102882078,
+        "irq": 1980406
+      },
+      {
+        "model": "AMD A6-9225 RADEON R4, 5 COMPUTE CORES 2C+3G   ",
+        "speed": 2600,
+        "user": 22542203,
+        "nice": 0,
+        "sys": 9170156,
+        "idle": 106763437,
+        "irq": 818625
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "VirtualBox Host-Only Network",
+        "internal": false,
+        "mac": "0a:00:27:00:00:09",
+        "address": "fe80::ce4:af8f:6f75:c501",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 9
+      },
+      {
+        "name": "VirtualBox Host-Only Network",
+        "internal": false,
+        "mac": "0a:00:27:00:00:09",
+        "address": "192.168.56.1",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Беспроводная сеть",
+        "internal": false,
+        "mac": "b0:fc:36:ee:b9:4f",
+        "address": "fe80::824:b1d1:a96:769",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 18
+      },
+      {
+        "name": "Беспроводная сеть",
+        "internal": false,
+        "mac": "b0:fc:36:ee:b9:4f",
+        "address": "172.20.10.3",
+        "netmask": "255.255.255.240",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "Bogdan-��"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x018ac150",
+      "symbol": "std::basic_streambuf<char,std::char_traits<char> >::`vftable'+64"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 705994752,
+    "totalCommittedMemory": 705994752,
+    "usedMemory": 688762700,
+    "availableMemory": 25067088,
+    "memoryLimit": 728760320,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261988,
+        "used": 21524,
+        "available": 240464
+      },
+      "new_space": {
+        "memorySize": 2097152,
+        "committedMemory": 2097152,
+        "capacity": 1047952,
+        "used": 228556,
+        "available": 819396
+      },
+      "old_space": {
+        "memorySize": 656216064,
+        "committedMemory": 656216064,
+        "capacity": 646549656,
+        "used": 646355948,
+        "available": 193708
+      },
+      "code_space": {
+        "memorySize": 3833856,
+        "committedMemory": 3833856,
+        "capacity": 3079776,
+        "used": 3079776,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 12849152,
+        "committedMemory": 12849152,
+        "capacity": 8513480,
+        "used": 8513480,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 30146560,
+        "committedMemory": 30146560,
+        "capacity": 30050296,
+        "used": 30050296,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 589824,
+        "committedMemory": 589824,
+        "capacity": 513120,
+        "used": 513120,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047952,
+        "used": 0,
+        "available": 1047952
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 140.437,
+    "kernelCpuSeconds": 13.062,
+    "cpuConsumptionPercent": 44.8827,
+    "maxRss": 719605760,
+    "pageFaults": {
+      "IORequired": 444814,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 7655,
+      "writes": 6
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "": "C:=C:\\Users\\Bogdan\\Desktop\\facebook\\шаблон angular\\angular",
+    "PROCESSOR_LEVEL": "21",
+    "PATH": "C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\chocolatey\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\Bogdan\\AppData\\Local\\Programs\\Python\\Python37-32\\Scripts\\;C:\\Users\\Bogdan\\AppData\\Local\\Programs\\Python\\Python37-32\\;C:\\Users\\Bogdan\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Bogdan\\AppData\\Roaming\\npm",
+    "PROMPT": "$P$G",
+    "PSExecutionPolicyPreference": "RemoteSigned",
+    "PUBLIC": "C:\\Users\\Public",
+    "LOCALAPPDATA": "C:\\Users\\Bogdan\\AppData\\Local",
+    "PROGRAMDATA": "C:\\ProgramData",
+    "DRIVERDATA": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "PROCESSOR_ARCHITECTURE": "x86",
+    "COMSPEC": "C:\\WINDOWS\\system32\\cmd.exe",
+    "WINDIR": "C:\\WINDOWS",
+    "TMP": "C:\\Users\\Bogdan\\AppData\\Local\\Temp",
+    "SYSTEMROOT": "C:\\WINDOWS",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC;.CPL",
+    "COMMONPROGRAMFILES": "C:\\Program Files\\Common Files",
+    "SESSIONNAME": "Console",
+    "PSMODULEPATH": "C:\\Users\\Bogdan\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "LOGONSERVER": "\\\\BOGDAN-ПК",
+    "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+    "PROCESSOR_REVISION": "7000",
+    "USERDOMAIN": "Bogdan-ПК",
+    "CHOCOLATEYINSTALL": "C:\\ProgramData\\chocolatey",
+    "TEMP": "C:\\Users\\Bogdan\\AppData\\Local\\Temp",
+    "USERPROFILE": "C:\\Users\\Bogdan",
+    "USERNAME": "Bogdan",
+    "PROGRAMFILES": "C:\\Program Files",
+    "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "CHOCOLATEYLASTPATHUPDATE": "132138133682899679",
+    "PROCESSOR_IDENTIFIER": "x86 Family 21 Model 112 Stepping 0, AuthenticAMD",
+    "SUBLIME_TERMINAL_PATH": "C:\\Users\\Bogdan\\AppData\\Roaming\\SUBLIM~1\\Packages\\Terminal",
+    "ONEDRIVE": "C:\\Users\\Bogdan\\OneDrive",
+    "USERDOMAIN_ROAMINGPROFILE": "Bogdan-ПК",
+    "SYSTEMDRIVE": "C:",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "OS": "Windows_NT",
+    "HOMEPATH": "\\Users\\Bogdan",
+    "APPDATA": "C:\\Users\\Bogdan\\AppData\\Roaming",
+    "VBOX_MSI_INSTALL_PATH": "C:\\Program Files\\Oracle\\VirtualBox\\",
+    "HOMEDRIVE": "C:",
+    "COMPUTERNAME": "BOGDAN-ПК",
+    "NUMBER_OF_PROCESSORS": "2"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+    "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+    "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+    "C:\\WINDOWS\\System32\\WS2_32.dll",
+    "C:\\WINDOWS\\System32\\RPCRT4.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+    "C:\\WINDOWS\\System32\\msvcrt.dll",
+    "C:\\WINDOWS\\System32\\sechost.dll",
+    "C:\\WINDOWS\\System32\\USER32.dll",
+    "C:\\WINDOWS\\System32\\win32u.dll",
+    "C:\\WINDOWS\\System32\\GDI32.dll",
+    "C:\\WINDOWS\\System32\\gdi32full.dll",
+    "C:\\WINDOWS\\System32\\msvcp_win.dll",
+    "C:\\WINDOWS\\System32\\ucrtbase.dll",
+    "C:\\WINDOWS\\System32\\PSAPI.DLL",
+    "C:\\WINDOWS\\System32\\CRYPT32.dll",
+    "C:\\WINDOWS\\System32\\MSASN1.dll",
+    "C:\\WINDOWS\\System32\\bcrypt.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+    "C:\\WINDOWS\\System32\\profapi.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMMBASE.dll",
+    "C:\\WINDOWS\\System32\\cfgmgr32.dll",
+    "C:\\WINDOWS\\System32\\bcryptPrimitives.dll",
+    "C:\\WINDOWS\\System32\\IMM32.DLL",
+    "C:\\WINDOWS\\System32\\powrprof.dll",
+    "C:\\WINDOWS\\System32\\UMPDC.dll",
+    "C:\\WINDOWS\\system32\\uxtheme.dll",
+    "C:\\WINDOWS\\System32\\combase.dll",
+    "C:\\WINDOWS\\system32\\mswsock.dll",
+    "C:\\WINDOWS\\System32\\kernel.appcore.dll",
+    "\\\\?\\C:\\Users\\Bogdan\\Desktop\\facebook\\шаблон angular\\angular\\node_modules\\node-sass\\vendor\\win32-ia32-72\\binding.node",
+    "C:\\WINDOWS\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\WINDOWS\\System32\\NSI.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\DNSAPI.dll",
+    "C:\\WINDOWS\\system32\\napinsp.dll",
+    "C:\\WINDOWS\\system32\\pnrpnsp.dll",
+    "C:\\WINDOWS\\system32\\wshbth.dll",
+    "C:\\WINDOWS\\system32\\NLAapi.dll",
+    "C:\\WINDOWS\\System32\\winrnr.dll"
+  ]
+}

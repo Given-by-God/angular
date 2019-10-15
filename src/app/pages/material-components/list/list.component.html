@@ -1,0 +1,83 @@
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
+
+<ni-card [title]="'Simple lists'">
+  <mat-list>
+    <mat-list-item>Pepper</mat-list-item>
+    <mat-list-item>Salt</mat-list-item>
+    <mat-list-item>Paprika</mat-list-item>
+  </mat-list>
+</ni-card>
+
+<ni-card [title]="'Navigation lists'">
+  <mat-nav-list>
+    <mat-list-item *ngFor="let link of links">
+      <a matLine  href="#">{{ link }}</a>
+      <button mat-icon-button>
+        <mat-icon>info</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-nav-list>
+</ni-card>
+
+<ni-card [title]="'Selection lists'">
+  <mat-selection-list #shoes>
+    <mat-list-option *ngFor="let shoe of typesOfShoes">
+      {{shoe}}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <p class="mt-3">
+    Options selected: {{shoes.selectedOptions.selected.length}}
+  </p>
+</ni-card>
+
+<ni-card [title]="'Multi-line lists'">
+  <mat-list>
+    <mat-list-item *ngFor="let message of messages">
+      <h3 matLine>{{ message.from }}</h3>
+      <p matLine>
+        <span>{{ message.subject }}</span>
+        <span class="text-muted"> — {{ message.content }}</span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</ni-card>
+
+<ni-card [title]="'Lists with avatars'">
+  <mat-list>
+    <mat-list-item *ngFor="let message of messages">
+      <img matListAvatar src="{{ message.avatar }}" width="40" height="40" alt="">
+      <h3 matLine class="h3">{{ message.from }}</h3>
+      <p matLine>
+        <span>{{message.subject}}</span>
+        <span class="text-muted"> — {{ message.content }}</span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</ni-card>
+
+<ni-card [title]="'Dense lists'">
+  <mat-list dense>
+    <mat-list-item>Pepper</mat-list-item>
+    <mat-list-item>Salt</mat-list-item>
+    <mat-list-item>Paprika</mat-list-item>
+  </mat-list>
+</ni-card>
+
+<ni-card [title]="'Lists with multiple sections'" class="mb-0">
+  <mat-list>
+    <h3 matSubheader>Folders</h3>
+    <mat-list-item *ngFor="let folder of folders">
+      <mat-icon matListIcon>folder</mat-icon>
+      <h4 matLine>{{folder.name}}</h4>
+      <p matLine class="text-muted"> {{folder.updated}} </p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <h3 matSubheader>Notes</h3>
+    <mat-list-item *ngFor="let note of notes">
+      <mat-icon matListIcon>note</mat-icon>
+      <h4 matLine>{{note.name}}</h4>
+      <p matLine class="text-muted"> {{note.updated}} </p>
+    </mat-list-item>
+  </mat-list>
+</ni-card>

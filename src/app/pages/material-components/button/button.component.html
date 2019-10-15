@@ -1,0 +1,69 @@
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
+
+<ni-card [title]="'Flat buttons'">
+  <div class="indents-list">
+    <button mat-button>Default</button>
+    <button mat-button color="primary">Primary</button>
+    <button mat-button color="accent">Accent</button>
+    <button mat-button color="warn">Warning</button>
+    <button mat-button disabled>Disabled</button>
+  </div>
+</ni-card>
+
+<ni-card [title]="'Raised buttons'">
+  <div class="indents-list">
+    <button mat-raised-button>Default</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warning</button>
+    <button mat-raised-button disabled>Disabled</button>
+  </div>
+</ni-card>
+
+<ni-card [title]="'Icon buttons'">
+  <div class="indents-list">
+    <button mat-icon-button><mat-icon>home</mat-icon></button>
+    <button mat-icon-button color="primary"><mat-icon>add</mat-icon></button>
+    <button mat-icon-button color="accent"><mat-icon>settings</mat-icon></button>
+    <button mat-icon-button color="warn"><mat-icon>thumb_up</mat-icon></button>
+    <button mat-icon-button disabled><mat-icon>check</mat-icon></button>
+  </div>
+</ni-card>
+
+<ni-card [title]="'Floating Action Buttons (FABs)'">
+  <div class="indents-list">
+    <button mat-fab><mat-icon>home</mat-icon></button>
+    <button mat-fab color="primary"><mat-icon>add</mat-icon></button>
+    <button mat-fab color="accent"><mat-icon>settings</mat-icon></button>
+    <button mat-fab color="warn"><mat-icon>thumb_up</mat-icon></button>
+    <button mat-fab disabled><mat-icon>check</mat-icon></button>
+  </div>
+</ni-card>
+
+<ni-card [title]="'Mini Floating Action Buttons (Mini FABs)'">
+  <div class="indents-list">
+    <button mat-mini-fab><mat-icon>home</mat-icon></button>
+    <button mat-mini-fab color="primary"><mat-icon>add</mat-icon></button>
+    <button mat-mini-fab color="accent"><mat-icon>settings</mat-icon></button>
+    <button mat-mini-fab color="warn"><mat-icon>thumb_up</mat-icon></button>
+    <button mat-mini-fab disabled><mat-icon>check</mat-icon></button>
+  </div>
+</ni-card>
+
+<ni-card [title]="'Button toggles'" class="mb-0">
+  <mat-button-toggle-group #group="matButtonToggleGroup">
+    <mat-button-toggle value="left">
+      <mat-icon>format_align_left</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="center">
+      <mat-icon>format_align_center</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="right">
+      <mat-icon>format_align_right</mat-icon>
+    </mat-button-toggle>
+    <mat-button-toggle value="justify">
+      <mat-icon>format_align_justify</mat-icon>
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+  <div class="mt-4">Selected value: {{group.value}}</div>
+</ni-card>

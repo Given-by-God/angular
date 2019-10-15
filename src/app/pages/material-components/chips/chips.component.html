@@ -1,0 +1,9 @@
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
+
+<ni-card [title]="'Inline chips'" class="mb-0">
+  <mat-chip-list class="mat-chip-list example-chips">
+    <mat-chip *ngFor="let chipColor of availableColors" selected="true" color="{{chipColor.color}}">
+      {{chipColor.name}}
+    </mat-chip>
+  </mat-chip-list>
+</ni-card>

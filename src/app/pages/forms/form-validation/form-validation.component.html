@@ -1,0 +1,129 @@
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
+
+<ni-card>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field class="mb-4">
+          <input matInput placeholder="First name" [formControl]="form.controls['fname']">
+          <mat-error *ngIf="form.controls['fname'].hasError('required') && form.controls['fname'].touched">
+            You must include a first name.
+          </mat-error>
+          <mat-error *ngIf="form.controls['fname'].hasError('minlength') && form.controls['fname'].touched">
+            Your first name must be at least 5 characters long.
+          </mat-error>
+          <mat-error *ngIf="form.controls['fname'].hasError('maxlength') && form.controls['fname'].touched">
+            Your first name cannot exceed 10 characters.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4">
+        <mat-form-field class="mb-4">
+          <input matInput placeholder="Email address" [formControl]="form.controls['email']" type="email">
+          <mat-error *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched">
+            You must include an email address.
+          </mat-error>
+          <mat-error *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched">
+            You must include a valid email address.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4">
+        <mat-form-field class="mb-4">
+          <input matInput placeholder="Website address" [formControl]="form.controls['url']" type="url">
+          <mat-error *ngIf="form.controls['url'].hasError('required') && form.controls['url'].touched">
+            You must include a web address.
+          </mat-error>
+          <mat-error *ngIf="form.controls['url'].errors?.url && form.controls['url'].touched">
+            You must include a valid web address.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4">
+        <mat-form-field class="mb-4">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="form.controls['date'].hasError('required') && form.controls['date'].touched">
+            You must include a date.
+          </mat-error>
+          <mat-error *ngIf="form.controls['date'].errors?.date && form.controls['date'].touched">
+            You must include a valid date.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4">
+        <mat-form-field class="mb-4">
+          <input matInput placeholder="Number range (between 5 and 9)" [formControl]="form.controls['range']">
+          <mat-error *ngIf="form.controls['range'].hasError('required') && form.controls['range'].touched">
+            You must enter a number.
+          </mat-error>
+          <mat-error *ngIf="form.controls['range'].errors?.range && form.controls['range'].touched">
+            Number should be between 5 and 9.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4">
+        <mat-form-field class="mb-4">
+          <input matInput placeholder="Credit card" [formControl]="form.controls['creditCard']">
+          <mat-error *ngIf="form.controls['creditCard'].hasError('required') && form.controls['creditCard'].touched">
+            You must enter a credit card.
+          </mat-error>
+          <mat-error *ngIf="form.controls['creditCard'].errors?.creditCard && form.controls['creditCard'].touched">
+            You must enter a valid credit card number.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4">
+        <mat-form-field class="mb-4">
+          <input matInput placeholder="US Phone number (15417543010)" [formControl]="form.controls['phone']" type="text">
+          <mat-error *ngIf="form.controls['phone'].hasError('required') && form.controls['phone'].touched">
+            You must include phone number.
+          </mat-error>
+          <mat-error *ngIf="form.controls['phone'].errors?.phone && form.controls['phone'].touched">
+            You must include a valid phone number.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4">
+        <mat-form-field class="mb-4">
+          <input matInput placeholder="Password" [formControl]="form.controls['password']" type="password">
+          <mat-error *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched">
+            You must include password.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-4">
+        <mat-form-field class="mb-4">
+          <input matInput placeholder="Confirm Password" [formControl]="form.controls['confirmPassword']" type="password">
+          <mat-error *ngIf="form.controls['confirmPassword'].hasError('required') && form.controls['confirmPassword'].touched">
+            You must include confirm password.
+          </mat-error>
+          <mat-error *ngIf="form.controls['confirmPassword'].errors?.equalTo">
+            Passwords do not math.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label>Gender</label>
+      <mat-radio-group [formControl]="form.controls['gender']">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+      <mat-error *ngIf="!form.controls['gender'].valid && form.controls['gender'].touched">
+        You must select a gender.
+      </mat-error>
+    </div>
+
+    <button type="submit" ni-button [view]="'accent'" [disabled]="!form.valid">Submit</button>
+  </form>
+</ni-card>

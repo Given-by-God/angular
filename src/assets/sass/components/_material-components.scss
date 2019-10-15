@@ -1,0 +1,235 @@
+body {
+  .mat-button-toggle,
+  .mat-button-base,
+  .mat-button,
+  .mat-raised-button,
+  .mat-fab,
+  .mat-icon-button,
+  .mat-mini-fab,
+  .mat-card,
+  .mat-checkbox,
+  .mat-input-container,
+  .mat-list,
+  .mat-menu-item,
+  .mat-radio-button,
+  .mat-select,
+  .mat-list .mat-list-item .mat-list-item-content,
+  .mat-nav-list .mat-list-item .mat-list-item-content,
+  .mat-simple-snackbar,
+  .mat-tab-label,
+  .mat-slide-toggle-content,
+  .mat-toolbar,
+  .mat-tooltip,
+  .mat-option,
+  .mat-list .mat-subheader,
+  .mat-nav-list .mat-subheader {
+    font-family: $main-ff !important;
+  }
+  [mat-button],
+  [mat-fab],
+  [mat-icon-button],
+  [mat-mini-fab],
+  [mat-raised-button] {
+    font-weight: inherit;
+  }
+  .mat-button-toggle-label {
+    margin-bottom: 0;
+  }
+
+  .mat-card {
+    .mat-card-header {
+      margin-bottom: $module;
+    }
+  }
+  [mat-card-avatar] {
+    overflow: hidden;
+  }
+  .mat-card-image {
+    max-width: none;
+  }
+  .mat-card-title {
+    margin-bottom: .5rem;
+  }
+  .mat-card-subtitle {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .mat-form-field-flex {
+    align-items: center;
+
+    .mat-form-field-prefix,
+    .mat-form-field-suffix {
+      padding-top: .84375em;
+    }
+    .mat-form-field-prefix {
+      padding-right: $module-rem;
+    }
+    .mat-form-field-suffix {
+      padding-left: $module-rem;
+    }
+  }
+  .mat-form-field {
+    width: 100%;
+
+    .mat-form-field-wrapper {
+
+      .mat-input-underline {
+        bottom: 0;
+        margin: 0;
+      }
+    }
+    .mat-input-subscript-wrapper {
+      padding-top: ($module-rem / 2);
+      top: 100%;
+    }
+  }
+
+  .mat-list {
+    .mat-list-item {
+      color: inherit;
+
+      .mat-list-item-content {
+        padding: 0 !important;
+
+        .mat-list-icon {
+          font-size: 30px;
+          height: 30px;
+          width: 30px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-size: 1.2rem;
+          font-weight: $headers-fw;
+          line-height: 1.3;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  .mat-progress-bar,
+  .mat-progress-circle,
+  .mat-spinner {
+    margin-bottom: $module;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .mat-radio-group {
+    display: block;
+    margin: 0 -11px $module;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .mat-radio-button {
+      margin: 0 11px;
+
+      .mat-radio-label {
+        margin: 0;
+      }
+    }
+  }
+  .column-layout {
+    .mat-radio-button {
+      display: block;
+      margin-bottom: $module;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .mat-checkbox {
+    display: inline-block;
+    margin-bottom: $module;
+    vertical-align: top;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .mat-checkbox-layout {
+    margin-bottom: 0;
+  }
+
+  .mat-option {
+    font-size: inherit !important;
+  }
+
+  .mat-tab-label {
+    .mat-icon {
+      vertical-align: middle;
+    }
+  }
+  .mat-tab-body-content {
+    overflow: auto;
+  }
+  .mat-icon {
+    position: relative;
+  }
+  .sb-item-head {
+    font-weight: $headers-fw;
+  }
+  .squeezebox {
+    .sb-item {
+      .sb-item-head {
+        a {
+          color: rgba(main-contrast(500),.8);
+
+          .toggle-icon {
+            height: 22px;
+            width: 22px;
+
+            &:before,
+            &:after {
+              background: main-contrast(500);
+            }
+          }
+          &:hover,
+          &:focus {
+            color: main-contrast(500);
+          }
+        }
+      }
+    }
+  }
+  .mat-input-invalid {
+    .mat-input-placeholder {
+      color: $error-color;
+    }
+    .mat-input-ripple {
+      background-color: $error-color;
+    }
+  }
+  .mat-header-row,
+  .mat-row {
+    padding: 0 $module-rem;
+
+    .mat-cell,
+    .mat-header-cell {
+      padding: 0 $module-rem;
+    }
+  }
+  .mat-paginator {
+    .mat-paginator-page-size-select {
+      margin: 0 4px;
+      width: 56px;
+    }
+  }
+  .mat-pseudo-checkbox-checked {
+    &:after {
+      height: 6px;
+      left: 2px;
+      width: 13px;
+    }
+  }
+}
+.rtl {
+  .squeezebox .sb-item .sb-item-head a .toggle-icon {
+    float: left;
+  }
+}

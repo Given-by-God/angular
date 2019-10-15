@@ -1,0 +1,16 @@
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
+
+<ni-card [title]="'Basic tooltip'">
+  <button mat-raised-button color="primary" matTooltip="Some message" matTooltipPosition="below">Tooltip</button>
+</ni-card>
+
+<ni-card [title]="'Positioning'">
+  <div class="button-list">
+    <button mat-raised-button color="primary" matTooltip="Some message" matTooltipPosition="after">after</button>
+    <button mat-raised-button color="primary" matTooltip="Some message" matTooltipPosition="before">before</button>
+    <button mat-raised-button color="primary" matTooltip="Some message" matTooltipPosition="above">above</button>
+    <button mat-raised-button color="primary" matTooltip="Some message" matTooltipPosition="below">below</button>
+    <button mat-raised-button color="primary" matTooltip="Some message" matTooltipPosition="left">left</button>
+    <button mat-raised-button color="primary" matTooltip="Some message" matTooltipPosition="right">right</button>
+  </div>
+</ni-card>

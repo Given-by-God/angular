@@ -1,0 +1,407 @@
+<p>
+  <button type="button" class="btn btn-secondary btn-sm" (click)="openModal(templateAddAkk);resetData()">
+    Добавить новый аккаунт
+  </button>
+</p>
+
+<p>
+  <button type="button" class="btn btn-secondary btn-sm" (click)="tmp()">
+    local storage tmp console
+  </button>
+</p>
+ 
+<accordion [isAnimated]="true">
+
+
+<div *ngIf="arrOfObj?.length > 0">
+
+  <accordion-group *ngFor="let item of arrOfObj;let j = index" heading=" {{ item[j]?.name }} / {{ getCustomName(j) }}" [isOpen]="isOpen">
+    <div class="col align-self-start">
+
+
+      <button type="button" class="btn btn-primary" (click)="openModal(templateEditAkk);editItem = j;getDataForEditAkk(j)">Редактировать аккаунт</button>
+    </div>
+    <div class="col align-self-end">
+      <button type="button" class="btn btn-danger" (click)="openModal(templateDeleteAkk);delItem = j">Удалить аккаунт</button>
+    </div>
+
+               <div  *ngFor="let item of arrOfObj[j]" [className]="item.account_status == 1 ? 'active container akkStatus' : 'inactive container akkStatus'">
+
+      <div *ngIf="item.business;else selfAkk">
+       Бизнес аккаунт
+      </div>
+      <ng-template #selfAkk> <div>Личный аккаунт  <div *ngIf="item.name">{{item.name}}</div>   </div> </ng-template>
+
+<div style="overflow-x: auto;white-space: nowrap;">
+<div class="row flex-nowrap"> 
+
+<div class="col align-self-start">
+       <button type="button" class="btn btn-primary" (click)="refresh(j)">Обновить</button>
+</div>
+</div> 
+
+<div class="row justify-content-end">
+    
+  
+  <button class="btn btn-secondary" (click)="dataDate(j,'lifetime')">Весь срок действия</button>
+  <button class="btn btn-secondary" (click)="dataDate(j,'today')">Сегодня</button>
+  <button class="btn btn-secondary" (click)="dataDate(j,'yesterday')">Вчера</button>
+
+    <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
+      <input type="text" class="form-control mb-3"
+             placeholder="{{dataPickerHolder()}}"
+             bsDaterangepicker 
+             (bsValueChange)="dataPicker($event,j)"    
+             [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" 
+              />
+      
+    </div>
+</div>
+  <div class="row justify-content-md-center flex-nowrap">
+    
+    <div class="col-md-auto">
+
+ 
+      <div class="btn-group">
+
+      <form [formGroup]="myForm" class="form-inline">
+        <div class="form-group">
+          <div class="btn-group" btnRadioGroup formControlName="radio">
+            <label btnRadio="A" class="btn btn-secondary text-left adsButton"
+                   tabindex="0" role="button" (click)="adsButtonChange(0)">Кампании</label>
+            <label btnRadio="B" class="btn btn-secondary text-left adsButton"
+                   tabindex="0" role="button" (click)="adsButtonChange(1)">Группы обьявлений</label>
+            <label btnRadio="C" class="btn btn-secondary text-left adsButton"
+                   tabindex="0" role="button" (click)="adsButtonChange(2)">Объявления</label>
+          </div>
+        </div>
+      </form>
+      </div>
+    </div> 
+  </div>
+
+<div class="row flex-nowrap" style="margin: 6px;">
+  <div class="col align-self-start">
+    <button type="button" class="btn btn-success">+Создать</button>
+  </div>
+   <div class="col align-self-center">
+    <button type="button" class="btn btn-secondary" (click)="openModal(templateRules)">Правила
+</button>
+   </div>
+   <div class="col col-md-auto">
+     <button type="button" class="btn btn-secondary" (click)="openModal(templateStolbs)">Столбцы
+</button>
+     
+   </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      0<th scope="col">Поставить на паузу</th>
+      1<th scope="col"> Клики все</th>
+      2<th scope="col"> Статус рк</th>
+
+      
+      5<th scope="col" >Цена за лид</th>
+      
+      6<th scope="col" >Охват</th>
+      7<th scope="col" >Потрачено за рк</th>
+      8<th scope="col" >крео</th>
+      9<th scope="col" >ссылка на сайт</th>
+      10<th scope="col" *ngIf="item.currency">{{item.currency}}</th>
+
+      11<th scope="col" *ngIf="item.adspaymentcycle">
+       Следующее списание {{ item.current_unbilled_spend.amount }}$ / {{item.adspaymentcycle.data[0].threshold_amount / 100}}$ - {{item.adtrust_dsl}} руб
+     </th>
+
+      12<th scope="col" *ngIf="item.amount_spent">
+          Всего затрат {{ item.amount_spent / 100 }}$
+        </th>
+
+      13<th scope="col"> 
+        <div *ngIf="item.all_payment_methods">
+      {{item.all_payment_methods.pm_credit_card.data[0].display_string}} 
+        </div>
+      </th>
+      14 <th>Cтатус показа</th>
+      15 <th>Причина отклонения </th>
+      16 <th>Лиды</th>
+      17 <th>CPM</th> 
+      18 <th>Цель</th>
+      19 <th>ctr(кликабельность)</th>
+      20 <th *ngIf="item.adspixels">pixel {{item.adspixels.data[0].id}} </th>
+    </tr> 
+  </thead>
+  <tbody *ngIf="item.ads">
+
+    <tr *ngFor="let item of item.ads.data;let i = index">
+
+
+      0<td *ngIf="item.adset_id &&
+                  item.delivery_info &&
+                  item.delivery_info.status &&
+                  item.delivery_info.status == 'active'
+                   ; else adset_id"> 
+
+        <button class="btn btn-primary" (click)="adsetToPause(j,item.adset_id)" [disabled]="!item.delivery_info.status == 'active'">На паузу</button>
+      </td>
+        
+      <ng-template #adset_id> <td> Неактивный adset </td> </ng-template>
+
+      1<td *ngIf="item.clicks;else elseBlockClick">{{item.clicks}}</td>
+      <ng-template #elseBlockClick> <td>0</td> </ng-template>
+
+      2<td *ngIf="item.effective_status;else effective_status">{{item.effective_status}}</td>
+      <ng-template #effective_status> <td>н\д</td> </ng-template>
+
+      
+
+      5<td *ngIf="item.cost_per_lead_fb;else cost_per_lead_fb">{{item.cost_per_lead_fb/100  | number:'1.2-2'}}$ </td> 
+      <ng-template #cost_per_lead_fb> <td>0</td> </ng-template>
+
+      6<td *ngIf="item.reach;else reach">{{item.reach}}</td>
+      <ng-template #reach> <td>0</td></ng-template>
+
+      7<td *ngIf="item.spent;else spent">{{item.spent / 100}}$</td>
+      <ng-template #spent> <td>0</td></ng-template>
+
+      8<td *ngIf="item.adcreatives &&
+                  item.adcreatives.data[0] &&
+                  item.adcreatives.data[0].image_url ||
+                  item.adcreatives.data[0].thumbnail_url
+                  ">
+        <img [src]="item.adcreatives.data[0].image_url || item.adcreatives.data[0].thumbnail_url ">
+      </td>
+      <ng-template #image_url> <td>н\д</td></ng-template>
+
+      9<td *ngIf="item.adcreatives.data[0]  && 
+      item.adcreatives.data[0].object_story_spec &&
+      item.adcreatives.data[0].object_story_spec.link_data &&
+      item.adcreatives.data[0].object_story_spec.link_data.link 
+      ;else adcreatives">{{item.adcreatives.data[0].object_story_spec.link_data.link}}
+      </td>
+       <ng-template #adcreatives> <td>н\д</td></ng-template>   
+       10<td></td>
+       11<td></td>
+       12<td></td>
+       13<td></td>
+       14<td *ngIf="item.delivery_info &&
+                    item.delivery_info.status;else delivery_info">
+
+                <p [ngSwitch]="item.delivery_info.status">
+                  <ng-template ngSwitchCase="not_delivering">not_delivering/остановлена</ng-template>
+                  <ng-template ngSwitchCase="pending_review">pending_review/рассматривается</ng-template>
+                  <ng-template ngSwitchCase="rejected">rejected/отклонена</ng-template>
+
+                  <ng-template ngSwitchDefault> {{item.delivery_info.status}} работает скорее всего</ng-template>
+                </p> 
+       </td>
+       <ng-template #delivery_info> <td>н\д</td></ng-template>
+
+       15<td *ngIf="item.ad_review_feedback; else ad_review_feedback">
+                    {{item.ad_review_feedback.global}}
+        </td>
+         <ng-template #ad_review_feedback> <td> не отклонена </td></ng-template>
+        16<td *ngIf="item.result;else result"> {{ item.result }} </td> 
+         <ng-template #result> <td>н\д</td></ng-template>
+
+         17 <td *ngIf="item.insights &&
+                       item.insights.data[0] &&
+                       item.insights.data[0].cpm
+                       ;else insights">
+                       {{item.insights.data[0].cpm | number:'1.2-2'}}$
+            </td>  
+            <ng-template #insights> <td>0</td></ng-template>
+
+        18 <td *ngIf="item.insights &&
+                       item.insights.data[0] &&
+                       item.insights.data[0].results &&
+                       item.insights.data[0].results[0] &&
+                       item.insights.data[0].results[0].indicator
+                       ;else indicator">
+                       {{item.insights.data[0].results[0].indicator}}
+            </td>
+            <ng-template #indicator> <td>н\д</td></ng-template>
+
+        19 <td *ngIf="item.insights &&
+                       item.insights.data[0] &&
+                       item.insights.data[0].inline_link_click_ctr 
+                       ;else indicator">
+                       {{item.insights.data[0].inline_link_click_ctr | number:'1.2-2'}}%
+            </td>
+            <ng-template #inline_link_click_ctr> <td>0%</td></ng-template>
+
+
+
+
+
+
+    </tr>
+    
+  </tbody>
+</table>
+
+
+</div>
+</div>
+
+  </accordion-group>
+  </div>
+</accordion>
+
+<ng-template #templateEditAkk>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  
+    <div>Введите название аккаунта</div> 
+    <input type="text" class="form-control" [(ngModel)]="akkData.nameOfAkk">
+    <div>Введите токен</div>
+    <input type="text" class="form-control" [(ngModel)]="akkData.token">
+    <div>Введите прокси</div>
+    <input type="text" class="form-control" [(ngModel)]="akkData.proxiIp">
+    <div>Введите прокси ip</div>
+    <input type="text" class="form-control" [(ngModel)]="akkData.proxiPort">
+    <div>Правило</div> 
+    <div class="btn-group" dropdown>
+    <button id="button-rooles" dropdownToggle type="button" class="btn btn-secondary dropdown-toggle"
+            aria-controls="dropdown-rooles">
+      Автоправила <span class="caret"></span>
+    </button>
+    </div>
+
+    <ul id="dropdown-rooles" *dropdownMenu class="dropdown-menu" (isOpenChange)="isOpenChange()"
+        role="menu" aria-labelledby="button-rooles">
+      <li  role="menuitem" class="dropdown-item" 
+        *ngFor="let rool of rooles" (click)="getRoole(rool)">{{rool}}
+      </li>
+    </ul>
+
+    <button type="button" class="btn btn-primary close pull-right" aria-label="Close" (click)="modalRef.hide();editAkk()">
+      <span aria-hidden="true">Изменить</span>
+    </button>
+</div>
+
+  
+</ng-template>
+
+
+
+
+<ng-template #templateDeleteAkk>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">Да</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Вы уверены,что хотите удалить аккаунт?
+  </div>
+
+    
+    <button  class="btn btn-danger" aria-label="Close" (click)="deleteAkk();modalRef.hide();">
+      <span aria-hidden="true">Да</span>
+    </button>
+
+    <button  class="btn btn-secondary" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">Нет</span>
+    </button>
+</ng-template>
+
+
+
+<ng-template #templateRules>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Rooles
+  </div>
+</ng-template>
+
+<ng-template #templateStolbs>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    
+
+
+
+  <form [formGroup]="myForm" (ngSubmit)="submit()">
+    
+
+    <label class="form-check" formArrayName="orders" *ngFor="let order of myForm.controls.orders.controls; let i = index">
+  
+      <input class="form-check-input" type="checkbox" [formControlName]="i">
+      {{ordersData[i].name}}
+
+    </label>
+
+    <button>submit</button>
+  </form>
+
+  </div>
+</ng-template>
+
+<ng-template #templateAddAkk>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Добавить аккаунт</h4>
+
+    
+  </div>
+  <div class="modal-body">
+    
+    <div>Введите название аккаунта</div> 
+    <input type="text" class="form-control" [(ngModel)]="akkData.nameOfAkk">
+    <div>Введите токен</div>
+    <input type="text" class="form-control" [(ngModel)]="akkData.token">
+    <div>Введите прокси</div>
+    <input type="text" class="form-control" [(ngModel)]="akkData.proxiIp">
+    <div>Введите прокси ip</div>
+    <input type="text" class="form-control" [(ngModel)]="akkData.proxiPort">
+    <div>Правило</div> 
+    <div class="btn-group" dropdown>
+    <button id="button-rooles" dropdownToggle type="button" class="btn btn-secondary dropdown-toggle"
+            aria-controls="dropdown-rooles">
+      Автоправила <span class="caret"></span>
+    </button>
+
+    <ul id="dropdown-rooles" *dropdownMenu class="dropdown-menu" (isOpenChange)="isOpenChange()"
+        role="menu" aria-labelledby="button-rooles">
+      <li  role="menuitem" class="dropdown-item" 
+        *ngFor="let rool of rooles" (click)="getRoole(rool)">{{rool}}
+      </li>
+    </ul> 
+
+    <button type="button" class="btn btn-primary close pull-right" aria-label="Close" (click)="modalRef.hide();search(akkData)">
+      <span aria-hidden="true">Добавить</span>
+    </button>
+</div>
+
+  </div>
+</ng-template>
+
+<ng-template #templateCheckOnExistToken>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Аккаунт уже добавлен!</h4>
+  </div>
+  <div class="modal-body">
+    <button type="button" class="btn btn-primary close pull-right" aria-label="Close" (click)="modalRef.hide();search(akkData)">
+      <span aria-hidden="true">Добавить</span>
+    </button>
+  </div>
+
+</ng-template>

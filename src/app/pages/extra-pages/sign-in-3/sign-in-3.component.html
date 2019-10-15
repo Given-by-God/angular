@@ -1,0 +1,32 @@
+<ni-card [title]="'Sign in with your app id to continue'" [align]="'center'">
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Username" value="">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Password" value="">
+    </mat-form-field>
+
+    <div class="text-left mb-module">
+      <mat-checkbox>
+        Keep me signed in
+      </mat-checkbox>
+    </div>
+
+    <button ni-button [view]="'accent'" [block]="true">Sign In</button>
+
+    <div class="social-divider">Sign in with</div>
+
+    <div class="social-login">
+      <button ni-button [bg]="'#3b5998'" beforeIcon="fa fa-facebook">Facebook</button>
+      <button ni-button [bg]="'#00ACED'" beforeIcon="fa fa-twitter">Twitter</button>
+    </div>
+
+    <div class="additional-info">
+      <a href="extra-layout/sign-up">Sign up</a>
+      <span class="divider"></span>
+      <a href="extra-layout/forgot">Forgot your password?</a>
+    </div>
+  </form>
+</ni-card>

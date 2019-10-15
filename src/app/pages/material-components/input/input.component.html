@@ -1,0 +1,70 @@
+<ni-breadcrumb [menu]="breadcrumb" [style]="'custom1'" class="mb-4"></ni-breadcrumb>
+
+<ni-card [title]="'Basic input'">
+  <mat-form-field>
+    <input matInput placeholder="Favorite food" value="Sushi">
+  </mat-form-field>
+</ni-card>
+
+<ni-card [title]="'Input Errors'">
+  <mat-form-field>
+    <input matInput placeholder="Email" [formControl]="emailFormControl">
+    <mat-error *ngIf="emailFormControl.hasError('pattern')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</ni-card>
+
+<ni-card [title]="'Prefix and Suffix'">
+  <mat-form-field>
+    <span matPrefix>+1 &nbsp;</span>
+    <input type="tel" matInput placeholder="Telephone">
+    <mat-icon matSuffix>mode_edit</mat-icon>
+  </mat-form-field>
+</ni-card>
+
+<ni-card [title]="'Input hints'">
+  <mat-form-field>
+    <input matInput #message maxlength="256" placeholder="Message">
+    <mat-hint align="start">Don't disclose personal info</mat-hint>
+    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+  </mat-form-field>
+</ni-card>
+
+<ni-card [title]="'Textarea'">
+  <mat-form-field>
+    <textarea matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
+</ni-card>
+
+<ni-card [title]="'Underline Color'">
+  <form class="mb-2" [formGroup]="options" [style.fontSize.px]="getFontSize()">
+    <mat-form-field [color]="options.value.color">
+      <mat-select placeholder="Color" formControlName="color">
+        <mat-option value="primary">Primary</mat-option>
+        <mat-option value="accent">Accent</mat-option>
+        <mat-option value="warn">Warn</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field [color]="options.value.color">
+      <input matInput type="number" placeholder="Font size (px)" formControlName="fontSize" min="10" max="20">
+      <mat-error *ngIf="options.get('fontSize').invalid">Min size - 10px/Max size - 20px</mat-error>
+    </mat-form-field>
+  </form>
+</ni-card>
+
+<ni-card [title]="'Autocomplete'" class="mb-0">
+  <mat-form-field>
+    <input type="text" matInput [matAutocomplete]="auto" [formControl]="autoControl" placeholder="Pick one">
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</ni-card>
